@@ -37,6 +37,8 @@ int main()
 
 }
 
+
+
 //reverse a string to same variable //time complexity is 0(n) because as size increases number of swapping increases for 5 characters we did 2 swaps
 //space complexity is 0(1) because we use only two variables 
 int main()
@@ -53,6 +55,8 @@ int main()
     cout << s;
 
 }
+
+
 
 //reverse an array   //time complexity is 0(n) space compplexity is 0(1)
 int main()
@@ -76,6 +80,9 @@ int main()
     }
 }
 
+
+
+
 //find the largest element in an array
 //wrong this is not how you do this
 int main()
@@ -91,6 +98,9 @@ int main()
     }
 
 }
+
+
+
 //find the largest  element in an array
 
 bool findlargest(int newarray[])
@@ -144,7 +154,10 @@ int main()
 
 }
 //or we can change bool to int and return largest and do int yadu = findlargest(arr, sizeof(arr) / sizeof(arr[0])); and cout<<yadu
-*
+
+
+
+
 //find the smallest element in an array
 bool findsmallest(int newarray[], int size)
 {
@@ -170,6 +183,9 @@ int main()
 
 }
 
+
+
+
 //count even numbers
 int main()
 {
@@ -185,6 +201,8 @@ int main()
     cout << count;
 }
 
+
+
 //sum of all elements //time 0(n) space 0(1)
 int main()
 {
@@ -197,6 +215,9 @@ int main()
     }
     cout << sum;
 }
+
+
+
 
 //Find an Element time0(n) space 0(1)
 int main() 
@@ -217,4 +238,109 @@ int main()
     }
 
 }
+
+
+
+//Count occurrences // time 0(n) and space 0(1)
+int main()
+{
+    int arr[] = { 10, 25, 42, 7, 42, 18, 42, 25 };
+    int target = 42;
+    int count = 0;
+    for (int i = 0; i < sizeof(arr) / sizeof(arr[0]);i++)
+    {
+        if (arr[i] == target)
+        {
+            count++;
+        }
+    }
+    cout << "42 appears" << count << "times";
+
+}
+
+
+//Find the second largest element time 0(n) space 0(1)
+int main()
+{
+    int arr[] = { 10, 25, 7, 42, 18 };
+    int largest = arr[0];
+    int secondlargest = 0;
+    for (int i = 0; i < sizeof(arr) / sizeof(arr[0]);i++)
+    {
+        if (arr[i] > largest)
+        {
+            secondlargest = largest;
+            largest = arr[i];
+            
+        }
+
+    }
+    cout << secondlargest;
+}
+
+//this is kinda correct but there is issue with what if first array index is 42 then secondlargest will always be 0 or what if there are negative numbers ?
+//correct version below
+int main()
+{
+    int arr[] = { 10, 25, 7, 42, 18 };
+    int size = sizeof(arr) / sizeof(arr[0]);
+
+    int largest = arr[0];
+    int secondlargest = arr[1];
+
+    if (secondlargest > largest)
+    {
+        swap(largest, secondlargest);
+    }
+
+    for (int i = 2; i < size; i++)
+    {
+        if (arr[i] > largest)
+        {
+            secondlargest = largest;
+            largest = arr[i];
+        }
+        else if (arr[i] > secondlargest)
+        {
+            secondlargest = arr[i];
+        }
+    }
+
+    cout << "Second largest: " << secondlargest;
+}
+
+
+
+//above is correct but if you want to handle duplicates also below code is best for finding second largest with distinct 
+
+
+int main()
+{
+    int arr[] = { 42, 25, 42, 18, 10 };
+    int size = sizeof(arr) / sizeof(arr[0]);
+
+    int largest = arr[0];
+    int secondlargest = arr[1];
+    if (secondlargest > largest)
+    {
+        swap(largest, secondlargest);
+    }
+
+    for (int i = 2; i < size; i++)
+    { 
+        if (arr[i] > largest)
+        {
+            secondlargest = largest;
+            largest = arr[i];
+        }
+        else if (arr[i] > secondlargest && arr[i]<largest) //to eliminate duplicates
+        {
+            secondlargest = arr[i];
+        }
+    }
+    cout << secondlargest;
+
+}
+
 */
+//Reverse an array of strings
