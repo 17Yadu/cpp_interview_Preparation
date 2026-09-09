@@ -342,5 +342,198 @@ int main()
 
 }
 
-*/
+
+
 //Reverse an array of strings
+int main()
+{
+    string arr[] = { "apple", "banana", "cherry", "orange" };
+    int size = sizeof(arr) / sizeof(arr[0]) - 1;
+    for (int i = size; i >= 0; i--)
+    {
+        cout << arr[i]<<" ";
+    }
+}
+//this does not reverse the array it just prints array in reverse question is reverse the array in place
+
+
+
+//reverse and array in place time 0(n) space 0(1)
+int main()
+{
+    string arr[] = { "apple", "banana", "cherry", "orange" };
+    int left = 0;
+    int right = sizeof(arr) / sizeof(arr[0]) - 1;
+    while (left < right)
+    {
+        swap(arr[left], arr[right]);
+        left++;
+        right--;
+    }
+    for (int i = 0; i < sizeof(arr) / sizeof(arr[0]);i++)
+    {
+        cout << arr[i]<< " ";
+    }
+}
+
+
+
+
+//Check if a string is a palindrome
+int main()
+{
+
+    string s = "madam";
+    int left = 0;
+    int right = s.length() - 1;
+    while (left < right)
+    {
+        swap(s[left], s[right]);
+        left++;
+        right--;
+    }
+    if (s == "madam")
+    {
+        cout << "Palindrome";
+    }
+    else
+    {
+        cout << "Not Palindrome";
+    }
+}
+//wrong completely because i am checking whether the reversed version is paalindrome not string   
+
+
+
+int main()//wrong
+{
+    string s = "madam";
+    int left = 0;
+    int right = s.length() - 1;
+    while (left < right)
+    {
+        if (s[left] == s[right])
+        {
+            left++;
+            right--;
+            cout << "palindrome";
+        }
+        else
+        {
+            cout << "not palindrome";
+        }
+    }
+ 
+}////wrong
+
+int main()
+{
+    string s = "madam";
+
+    int left = 0;
+    int right = s.length() - 1;
+
+    bool palindrome = true;
+
+    while (left < right)
+    {
+        if (s[left] != s[right])
+        {
+            palindrome = false;
+            break;
+        }
+
+        left++;
+        right--;
+    }
+
+    if (palindrome)
+    {
+        cout << "Palindrome";
+    }
+    else
+    {
+        cout << "Not Palindrome";
+    }
+}
+
+//check if two strings are anagrams
+int main()//wrong
+{
+    string s1 = "listen";
+    string s2 = "silent";
+    for (int i = 0;i < s1.length() - 1;i++)
+    {
+        if(s1[i]==s2[i])
+
+    }
+}
+
+
+#include <algorithm> //time - O(n log n).space - O(log n) typically, because the implementation uses stack space for recursion.
+int main()
+{
+    string s1 = "listen";
+    string s2 = "silent";
+
+    sort(s1.begin(), s1.end()); //begin points to first character end points after last character
+    sort(s2.begin(), s2.end());
+
+    if (s1 == s2)
+    {
+        cout << "Anagram";
+    }
+    else
+    {
+        cout << "Not Anagram";
+    }
+}
+*/
+
+//without sort  length = number of elements
+//last index = length - 1
+//we are using used because string s1 = "aab";
+//string s2 = "abb"; and index 0 of s1 and s2 matches and when try to match index 1 of s1 with s2 without used it will show as matched to avoid this
+int main()
+{
+    //we can use bool as arrays kinda
+  
+
+    string s1 = "yadu";
+    string s2 = "uday";
+    if (s1.length() != s2.length())
+    {
+        cout << "Not anagram";
+        return 0;
+    }
+    bool anagram = false;
+    bool used[100] = { false };//means used[0] = false, used[1] = false kinda
+    for (int i = 0;i < s1.length();i++)
+    {
+        bool found = false;
+        for (int j = 0;j < s2.length();j++)
+        {
+            if (s1[i] == s2[j] && used[j]==false)
+            {
+                used[j] = true;
+                found = true;
+                anagram = true;
+
+            }
+        }
+        if (found != true)
+        {
+            anagram = false;
+            break;
+        }
+    }
+    if (anagram)
+    {
+        cout << "anagram";
+    }
+    else
+    {
+        cout << "not anagram";
+    }
+
+}
