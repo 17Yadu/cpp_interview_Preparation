@@ -1,4 +1,4 @@
-//reverse a string in same string 
+﻿//reverse a string in same string 
 
 #include <iostream>
 #include<string>
@@ -488,7 +488,7 @@ int main()
         cout << "Not Anagram";
     }
 }
-*/
+
 
 //without sort  length = number of elements
 //last index = length - 1
@@ -537,3 +537,265 @@ int main()
     }
 
 }
+
+//find the missing number
+int main()
+{
+    int arr[] = { 1, 2, 3, 5, 6 };
+    int missing = 4;
+    bool notfound = false;
+    for (int i = 0;i < size(arr);i++)
+    {
+        if (arr[i]== missing)
+        {
+            notfound = true;
+        }
+    }
+    if (notfound)
+    {
+        cout << "missing number is 4";
+    }
+    else
+    {
+        cout << "no missing numbers";
+    }
+}//wrong
+
+////////////////
+///////////////
+In an interview
+
+They might give :
+
+int n = 6;
+int arr[] = { 1, 2, 3, 5, 6 };
+
+Then there's no ambiguity.
+
+Or they might say :
+
+"The array has n-1 elements and contains numbers from 1 to n."
+
+That's how you know n.
+
+
+
+
+//Find missing numbers
+//when they ask you to find some number you would have known what to search but here you dont know what to search 
+//only they will give range and you will have to find missing number so better approach is to whatever the range they ask
+//wrie a loop for the outer loop to print
+int main()
+{
+    int arr[] = { 1, 2, 3, 5, 6 };
+    int n = 6;
+    for (int i = 1;i< 6;i++)
+    {
+        bool found = false;
+        for (int j = 0;j <size(arr);j++)
+        {
+            if (arr[j] ==i)
+            {
+                found = true;
+                break;
+            }
+
+        }
+        if (!found)
+        {
+            cout << "missing number is " << i;
+            break;
+        }
+    }
+}
+
+
+
+//Move all zeros to the end    // time 0(n) space 0(1)
+int main()
+{
+    int arr[] = { 0, 1, 0, 3, 12 };
+    int position = 0;
+    for (int i = 0;i < sizeof(arr)/sizeof(arr[0]);i++)
+    {
+        if(arr[i] !=0)
+        {
+            arr[position] = arr[i];
+            position++;
+           
+        }
+    }
+    //fill the zeroes to end
+    for (int i = position; i < sizeof(arr) / sizeof(arr[0]); i++)
+    {
+        arr[i] = 0;
+    }
+
+    for (int i = 0;i < sizeof(arr) / sizeof(arr[0]);i++)
+    {
+        cout << arr[i] << " ";
+    }
+
+
+
+}
+
+
+//Check whether two strings are equal without using ==  
+//Anagram → search anywhere → nested loop.
+
+//Equal strings → compare same position → one loop.
+// whats happening in this h is compare with all the index postions which is wrong for equal comparison same indexes should be compared
+
+
+//wrongggggggggg
+int main()
+{
+    string s1 = "hello";
+    string s2 = "heldo";
+    bool equal = true;
+    for (int i = 0;i < s1.length();i++)
+    {
+        
+        for (int j = 0;j < s2.length();j++)
+        {
+            if (s2[j] != s1[i])
+            {
+                equal = false;
+            }
+
+      
+        }
+        if (!equal)
+        {
+            equal = true;
+            break;
+        }
+    }
+    if (equal)
+    {
+        cout << "strings are equal";
+
+    }
+    else
+    {
+        cout << "strings not equal";
+    }
+}
+
+//correct one
+int main()
+{
+    string s1 = "hello";
+    string s2 = "heldo";
+
+    bool equal = true;
+
+    if (s1.length() != s2.length())
+    {
+        equal = false;
+    }
+    else
+    {
+        for (int i = 0; i < s1.length(); i++)
+        {
+            if (s1[i] != s2[i])
+            {
+                equal = false;
+                break;
+            }
+        }
+    }
+
+    if (equal)
+    {
+        cout << "Strings are equal";
+    }
+    else
+    {
+        cout << "Strings are not equal";
+    }
+}
+
+//Find duplicate elements
+int main()
+{
+    int arr[] = { 10, 25, 7, 42, 25, 18, 42 };
+    int size = sizeof(arr) / sizeof(arr[0]);
+   
+    
+    for (int i = 0; i < size; i++)
+    {
+        for (int j = i+1; j < size; j++)// j=i+1 helps stop comparing with same element in array
+        {
+            if (arr[i] == arr[j])
+            {
+                cout << arr[i]<<" ";
+                break;
+            }
+        }
+    }
+}
+
+
+
+
+
+//find the largest difference between two elements 15-3 =12
+
+
+//wrong because i am finding largest and smallest that is not the job job is to find largest difference between two elements
+int main()
+{
+    int arr[] = { 10, 3, 8, 15, 6 };
+    int largest = arr[0];
+    int smallest = arr[0];
+    for (int i = 0;i < size(arr);i++)
+    {
+        if (arr[i] > largest)
+        {
+            largest = arr[i];
+        }
+        else  if (arr[i] < smallest)
+        {
+            smallest = arr[i];
+        }
+    }
+
+    int result = largest - smallest;
+    cout << result;
+}
+
+
+//think like this What is the cheapest / smallest value I have seen BEFORE reaching this element ?
+//difference = current value - smallest value before it;
+int main()
+{
+int arr[] = {10, 3, 8, 15, 6};
+int size = sizeof(arr) / sizeof(arr[0]);
+int smallest = arr[0];
+int maxDifference = 0;
+
+for (int i = 1; i < size; i++)
+{
+    int difference = arr[i] - smallest;
+
+    if (difference > maxDifference)
+    {
+        maxDifference = difference;
+    }
+
+    if (arr[i] < smallest)
+    {
+        smallest = arr[i];
+    }
+}
+cout << "Maximum difference: " << maxDifference;
+
+}
+*/
+
+
+
+
+//check if an array is sorted
