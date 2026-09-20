@@ -519,6 +519,7 @@ int main()
                 found = true;
                 anagram = true;
 
+
             }
         }
         if (found != true)
@@ -793,9 +794,148 @@ for (int i = 1; i < size; i++)
 cout << "Maximum difference: " << maxDifference;
 
 }
-*/
 
 
 
 
+//Find the smallest difference between two elements in an array
+int main()
+{
+
+    int arr[] = {10, 3, 8, 15, 6};
+    int size = sizeof(arr) / sizeof(arr[0]);
+    int smallestdifference;
+    if(arr[0] > arr[1])
+    {
+     smallestdifference = arr[0]- arr[1];
+    }
+    else
+    {
+    smallestdifference = arr[1]- arr[0];
+    
+    }
+    for(int i =0;i<size;i++)
+    {
+    
+    for(int j =i+1;j<size;j++)
+    {
+    
+       int difference;
+       if(arr[i]>arr[j])
+       {
+       difference = arr[i] -arr[j];
+       }
+       else
+       {
+       difference = arr[j] -arr[i];
+       }
+
+       
+            if (difference < smallestdifference)
+            {
+                smallestdifference = difference;
+            }
+    }
+    
+    }
+
+
+    cout << "Smallest difference: " << smallestdifference;
+
+}
+
+
+/*
 //check if an array is sorted
+int main()
+{
+    int arr[] = { 1, 2, 3, 4, 5 };
+    bool sorted = false;
+
+    for (int i = 0;i < size(arr)-1;i++)
+    {
+        if (arr[i] < arr[i + 1])
+        {
+            sorted = true;
+        }
+        else
+        {
+            sorted = false;
+            break;
+        }
+
+    }
+    if (sorted)
+    {
+        cout << "sorted";
+    }
+    else
+    {
+        cout << "not sorted";
+    }
+}
+
+
+
+
+//Find the first repeated element
+int main()
+{
+    int arr[] = { 10, 25, 7, 42,18 ,25};
+    int size = sizeof(arr) / sizeof(arr[0]);
+    bool found = true;
+    for (int i = 0;i < size;i++)
+    {
+        for (int j = i+1;j < size;j++)
+        {
+            if (arr[i] == arr[j])
+            {
+                cout << arr[i]<< " ";
+                found = false;
+                break;
+              
+            }
+        }
+        if (found == false)
+        {
+            break;
+        }
+    }
+    if (found != false)
+    {
+        cout << "No repeated element";
+    }
+}
+
+
+
+
+
+*/
+//Remove duplicates from an array
+int main()
+{
+    int arr[] = { 10, 25, 10, 7, 25, 42 };
+    int size = sizeof(arr) / sizeof(arr[0]);
+
+    for (int i = 0; i < size; i++)
+    {
+        bool alreadyExists = false;
+
+        for (int j = 0; j < i; j++)
+        {
+            if (arr[i] == arr[j])
+            {
+                alreadyExists = true;
+                break;
+            }
+        }
+
+        if (!alreadyExists)
+        {
+            cout << arr[i] << " ";
+        }
+    }
+
+
+}
