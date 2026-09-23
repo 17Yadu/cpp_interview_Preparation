@@ -911,7 +911,7 @@ int main()
 
 
 
-*/
+
 //Remove duplicates from an array
 int main()
 {
@@ -939,3 +939,109 @@ int main()
 
 
 }
+
+
+
+
+//move all negative numbers to left
+
+int main()
+{
+
+    int arr[] = { 2, -3, 5, -1, 4, -6 };
+    int size = sizeof(arr) / sizeof(arr[0]);
+    int position = 0;
+    for (int i = 0;i < size;i++)
+    {
+        if (arr[i] < 0)
+        {
+            swap(arr[i], arr[position]);
+            //you can use swap or below three lines to move 0s to end or negative numbers to right
+           // int temp = arr[i];
+           // arr[i] = arr[position];
+            //arr[position] = temp;
+            position++;
+        }
+
+    }
+
+    for (int i = 0;i < size;i++)
+    {
+        cout << arr[i] << " ";
+    }
+
+
+}
+
+
+
+
+
+//move all 0s to start
+int main()
+{
+    int arr[] = {1, 0, 3, 0, 12};
+    int size = sizeof(arr) / sizeof(arr[0]);
+
+    int position = size - 1;
+
+    for (int i = size - 1; i >= 0; i--)
+    {
+        if (arr[i] != 0)
+        {
+            swap(arr[i], arr[position]);
+            position--;
+        }
+    }
+
+    for (int i = 0; i < size; i++)
+    {
+        cout << arr[i] << " ";
+    }
+}
+
+
+
+//find the first non repeating element
+
+int main()
+{
+    int arr[] = { 10, 25, 10, 7, 25, 42, 7 };
+    int size = sizeof(arr) / sizeof(arr[0]);
+
+    for (int i = 0;i < size;i++)
+    {
+        bool found = false;
+        for (int j =0;j<size;j++)
+        {
+            if (i != j && arr[i] == arr[j]) // i was unable to figure out this one line when i was coding 
+            {
+                found = true;
+                
+            }
+
+        }
+        if(!found)
+        {
+            cout << arr[i];
+        }
+
+
+    }
+
+
+
+
+
+}
+
+
+
+
+
+
+*/
+
+
+
+//find the majority element in an array
