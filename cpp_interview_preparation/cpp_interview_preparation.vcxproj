@@ -18,12 +18,21 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="01_Cpp_Fundamentals\functions.cpp" />
+    <ClCompile Include="01_Cpp_Fundamentals\loops.cpp" />
+    <ClCompile Include="01_Cpp_Fundamentals\references.cpp" />
+    <ClCompile Include="01_Cpp_Fundamentals\variables_and_data_types.cpp" />
+    <ClCompile Include="02_Problem_Solving\cpp_problem_solving_practice.cpp" />
+    <ClCompile Include="main.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>18.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
     <ProjectGuid>{a20e0aa9-9252-4a9b-8f83-b9184a5a6216}</ProjectGuid>
     <RootNamespace>cppinterviewpreparation</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>C++_Mastering</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -138,9 +147,6 @@
       <EnableSegmentHeap>true</EnableSegmentHeap>
     </Manifest>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="cpp_interview_preparation.cpp" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

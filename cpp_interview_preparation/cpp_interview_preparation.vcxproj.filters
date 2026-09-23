@@ -15,7 +15,22 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="cpp_interview_preparation.cpp">
+    <ClCompile Include="02_Problem_Solving\cpp_problem_solving_practice.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="01_Cpp_Fundamentals\functions.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="01_Cpp_Fundamentals\loops.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="01_Cpp_Fundamentals\references.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="01_Cpp_Fundamentals\variables_and_data_types.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
